@@ -1,0 +1,3 @@
+<settingsSecurity>
+    <master>{masterencryptionkey}</master>
+</settingsSecurity>

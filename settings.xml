@@ -1,0 +1,51 @@
+<settings>
+    <mirrors>
+        <mirror> <!--Send all requests to the public group -->
+            <id>nexus</id>
+            <mirrorOf>*</mirrorOf>
+            <url>https://PRIVATEURL/repository/maven-public/</url>
+        </mirror>
+    </mirrors>
+    <activeProfiles>
+        <!--make the profile active all the time -->
+        <activeProfile>nexus</activeProfile>
+    </activeProfiles>
+    <profiles>
+        <profile>
+            <id>nexus</id>
+            <!--Override the repository (and pluginRepository) "central" from the Maven Super POM
+                to activate snapshots for both! -->
+            <repositories>
+                <repository>
+                    <id>central</id>
+                    <url>http://central</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </repository>
+            </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>central</id>
+                    <url>http://central</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </pluginRepository>
+            </pluginRepositories>
+        </profile>
+    </profiles>
+    <servers>
+        <server>
+            <id>nexus</id>
+            <username>USERNAME</username>
+            <password>{ENCPASSWORD}</password>
+        </server>
+    </servers>
+</settings>
